@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>Shopping list</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            background-color: rgb(255, 255, 0);
+            width:fit-content;
+            border: 5px solid black;
+            padding:20px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 10px black;
+        }
+        ol{
+            display:flex;
+            flex-direction: column;
+            gap:5px;
+        }
+        li{
+            width: fit-content;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding:0px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Shopping list</h1>
+        <form action="/nowhere" id="form">
+            <input type="text" id="ShoppingList" name="ShoppingList" placeholder="Shopping list">
+            <button>Submit</button>
+        </form>
+        <hr>
+        <div id="lists">
+            <ol id="list">
+            </ol>
+        </div>
+        <hr>
+    </div>
+    
+
+
+
+<script>
+        const Shopping = document.querySelector('#ShoppingList');
+        const list = document.querySelector('#list');
+        const lists = document.querySelector('#lists');
+        form.addEventListener('submit', function(evt){
+            evt.preventDefault();
+            const ShoppingList = Shopping.value;
+            appendinfo(ShoppingList);
+            ShoppingList = '';
+        });
+
+        function appendinfo(ShoppingList) {
+            const newLi = document.createElement('li');
+            newLi.append(`${ShoppingList}`);
+            list.append(newLi);
+        };
+        lists.addEventListener('click',(e)=>{
+            if(e.target.nodeName==='LI'){
+                e.target.remove();
+            }
+        })
+
+
+
+</script>
+</body>
+
+</html>
